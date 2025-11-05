@@ -1,0 +1,12 @@
+# Development Dependencies for MCP CodeGen
+#
+# This file is optional but convenient for contributors.
+# It installs the package in editable mode plus all dev dependencies.
+#
+# Usage:
+#   pip install -r requirements-dev.txt
+#
+# Alternative (equivalent):
+#   pip install -e ".[dev]"
+
+-e .[dev]
