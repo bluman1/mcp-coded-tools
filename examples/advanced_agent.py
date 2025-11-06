@@ -16,7 +16,7 @@ from mcp.client.stdio import stdio_client
 # First, generate the code (run this once)
 async def generate_tools():
     """Generate code from MCP servers."""
-    from mcp_agent_tools import MCPCodeGenerator
+    from mcp_coded_tools import MCPCodeGenerator
 
     generator = MCPCodeGenerator()
 
@@ -171,6 +171,6 @@ async def main():
 
 if __name__ == "__main__":
     print("=" * 60)
-    print("Advanced MCP CodeGen Agent Example")
+    print("Advanced mcp-coded-tools Agent Example")
     print("=" * 60)
     asyncio.run(main())

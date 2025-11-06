@@ -1,4 +1,4 @@
-# Contributing to MCP CodeGen
+# Contributing to mcp-coded-tools
 
 Thank you for your interest in contributing to MCP Agent Tools! This document provides guidelines for contributing to the project.
 
@@ -6,8 +6,8 @@ Thank you for your interest in contributing to MCP Agent Tools! This document pr
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/bluman1/mcp-agent-tools.git
-cd mcp-agent-tools
+git clone https://github.com/bluman1/mcp-coded-tools.git
+cd mcp-coded-tools
 ```
 
 2. **Create a virtual environment**
@@ -23,7 +23,7 @@ pip install -e ".[dev]"
 
 4. **Verify installation**
 ```bash
-mcp-agent-tools --version
+mcp-coded-tools --version
 pytest
 ```
 
@@ -57,7 +57,7 @@ We aim for high test coverage. Please add tests for new features.
 pytest
 
 # Run with coverage
-pytest --cov=mcp_agent_tools --cov-report=html
+pytest --cov=mcp-coded-tools --cov-report=html
 
 # Run specific test file
 pytest tests/test_generator.py
@@ -169,7 +169,7 @@ Use this template:
 [Clear description of the issue]
 
 ## Steps to Reproduce
-1. Run `mcp-agent-tools generate -c "..."`
+1. Run `mcp-coded-tools generate -c "..."`
 2. ...
 3. Error occurs
 
@@ -182,7 +182,7 @@ Use this template:
 ## Environment
 - OS: [e.g., Ubuntu 22.04, macOS 13.0, Windows 11]
 - Python: [e.g., 3.11.5]
-- mcp-agent-tools: [e.g., 0.1.0]
+- mcp-coded-tools: [e.g., 0.1.0]
 
 ## Logs
 ```

@@ -8,7 +8,7 @@ from pathlib import Path
 from unittest.mock import AsyncMock, MagicMock, patch
 
 from mcp.types import Tool
-from mcp_agent_tools.generator import MCPCodeGenerator
+from mcp_coded_tools.generator import MCPCodeGenerator
 
 
 class TestMCPCodeGeneratorIntegration:
@@ -72,7 +72,7 @@ class TestMCPCodeGeneratorIntegration:
         generator = MCPCodeGenerator()
 
         # Mock the MCP connection
-        with patch("mcp_agent_tools.generator.stdio_client") as mock_client:
+        with patch("mcp_coded_tools.generator.stdio_client") as mock_client:
             # Setup mock session
             mock_session = AsyncMock()
             mock_session.initialize = AsyncMock()
@@ -90,7 +90,7 @@ class TestMCPCodeGeneratorIntegration:
             mock_session_cm.__aenter__ = AsyncMock(return_value=mock_session)
             mock_session_cm.__aexit__ = AsyncMock()
 
-            with patch("mcp_agent_tools.generator.ClientSession", return_value=mock_session_cm):
+            with patch("mcp_coded_tools.generator.ClientSession", return_value=mock_session_cm):
                 # Scan the mock server
                 await generator.connect_and_scan(["npx", "-y", "mock-server"])
 
@@ -239,7 +239,7 @@ class TestMCPCodeGeneratorIntegration:
         """Test handling of connection errors."""
         generator = MCPCodeGenerator()
 
-        with patch("mcp_agent_tools.generator.stdio_client") as mock_client:
+        with patch("mcp_coded_tools.generator.stdio_client") as mock_client:
             mock_client.side_effect = Exception("Connection failed")
 
             with pytest.raises(ConnectionError):

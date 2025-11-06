@@ -1,9 +1,9 @@
-# MCP CodeGen
+# mcp-coded-tools
 
-[![PyPI version](https://badge.fury.io/py/mcp-agent-tools.svg)](https://badge.fury.io/py/mcp-agent-tools)
-[![Python Versions](https://img.shields.io/pypi/pyversions/mcp-agent-tools.svg)](https://pypi.org/project/mcp-agent-tools/)
+[![PyPI version](https://badge.fury.io/py/mcp-coded-tools.svg)](https://badge.fury.io/py/mcp-coded-tools)
+[![Python Versions](https://img.shields.io/pypi/pyversions/mcp-coded-tools.svg)](https://pypi.org/project/mcp-coded-tools/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![CI](https://github.com/bluman1/mcp-tool-gen/workflows/CI/badge.svg)](https://github.com/bluman1/mcp-tool-gen/actions)
+[![CI](https://github.com/bluman1/mcp-coded-tools/workflows/CI/badge.svg)](https://github.com/bluman1/mcp-coded-tools/actions)
 
 Generate discoverable code from MCP servers for AI agent tool usage.
 
@@ -19,12 +19,12 @@ The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) lets AI age
 
 **The problem**: Manually writing wrapper code for each MCP tool is tedious.
 
-**MCP CodeGen**: Automatically generate discoverable Python code from any MCP server.
+**mcp-coded-tools**: Automatically generate discoverable Python code from any MCP server.
 
 ## Installation
 
 ```bash
-pip install mcp-agent-tools
+pip install mcp-coded-tools
 ```
 
 ## Quick Start
@@ -33,20 +33,20 @@ pip install mcp-agent-tools
 
 ```bash
 # Generate code from popular MCP servers
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   --command "npx -y @modelcontextprotocol/server-github" \
   --output ./servers \
   --server-name github
 
 # Generate from multiple servers for complete workflows
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   --command "npx -y @modelcontextprotocol/server-github" \
   --command "npx -y @modelcontextprotocol/server-postgres" \
   --command "python slack_mcp_server.py" \
   --output ./servers
 
 # Watch mode for development (auto-regenerate on changes)
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   --command "python ./my_mcp_server.py" \
   --output ./tools \
   --watch
@@ -60,21 +60,21 @@ mcp-agent-tools generate \
 
 ```python
 import asyncio
-from mcp_agent_tools import MCPCodeGenerator
+from mcp-coded-tools import MCPCodeGenerator
 
 async def main():
     generator = MCPCodeGenerator()
-    
+
     # Connect to MCP server and generate code
     await generator.connect_and_scan([
         "npx", "-y", "@modelcontextprotocol/server-gdrive"
     ])
-    
+
     generator.generate_code(
         output_dir="./servers",
         server_name="google_drive"
     )
-    
+
     print("✓ Generated discoverable code!")
 
 asyncio.run(main())
@@ -197,7 +197,7 @@ generator = MCPCodeGenerator(
 Automate DevOps workflows across multiple systems:
 
 ```bash
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   --command "npx -y @modelcontextprotocol/server-postgres" \
   --command "npx -y @modelcontextprotocol/server-github" \
   --command "python slack_mcp_server.py" \
@@ -241,7 +241,7 @@ await post_message(
 Review PRs with AI assistance at scale:
 
 ```bash
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   --command "npx -y @modelcontextprotocol/server-github" \
   --command "npx -y @modelcontextprotocol/server-filesystem" \
   --command "npx -y @modelcontextprotocol/server-sequential-thinking" \
@@ -256,8 +256,8 @@ mcp-agent-tools generate \
 
 ```bash
 # Clone repository
-git clone https://github.com/bluman1/mcp-agent-tools.git
-cd mcp-tool-gen
+git clone https://github.com/bluman1/mcp-coded-tools.git
+cd mcp-coded-tools
 
 # Install in development mode
 pip install -e ".[dev]"

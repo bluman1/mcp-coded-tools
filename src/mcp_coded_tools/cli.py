@@ -1,5 +1,5 @@
 """
-Command-line interface for mcp-tool-gen
+Command-line interface for mcp-coded-tools
 """
 
 import asyncio
@@ -28,7 +28,7 @@ def setup_logging(verbose: bool) -> None:
 @click.version_option()
 def cli() -> None:
     """
-    MCP CodeGen - Generate discoverable code from MCP servers
+    mcp-coded-tools - Generate discoverable code from MCP servers
 
     Generate Python code from MCP tool definitions to enable efficient
     agent tool discovery through filesystem interfaces.
@@ -83,23 +83,23 @@ def generate(
     Examples:
 
         # Generate from a single server
-        mcp-tool-gen generate -c "npx -y @modelcontextprotocol/server-gdrive" -o ./servers
+        mcp-coded-tools generate -c "npx -y @modelcontextprotocol/server-gdrive" -o ./servers
 
         # Generate from multiple servers
-        mcp-tool-gen generate \\
+        mcp-coded-tools generate \\
             -c "npx -y @modelcontextprotocol/server-gdrive" \\
             -c "python salesforce_server.py" \\
             -o ./servers
 
         # Use explicit server name
-        mcp-tool-gen generate -c "python my_server.py" -s my_custom_name
+        mcp-coded-tools generate -c "python my_server.py" -s my_custom_name
 
         # Watch for changes and auto-regenerate
-        mcp-tool-gen generate -c "python my_server.py" -o ./servers --watch
+        mcp-coded-tools generate -c "python my_server.py" -o ./servers --watch
     """
     setup_logging(verbose)
 
-    click.echo("🔨 MCP CodeGen - Generating code from MCP servers")
+    click.echo("🔨 mcp-coded-tools - Generating code from MCP servers")
     click.echo()
 
     # Run async generation
@@ -268,7 +268,7 @@ def inspect(command: str, verbose: bool) -> None:
     Inspect an MCP server to see available tools without generating code.
 
     Example:
-        mcp-tool-gen inspect -c "npx -y @modelcontextprotocol/server-gdrive"
+        mcp-coded-tools inspect -c "npx -y @modelcontextprotocol/server-gdrive"
     """
     setup_logging(verbose)
 
@@ -326,7 +326,7 @@ def init(output_dir: str) -> None:
     Creates a starter template with example MCP integration.
 
     Example:
-        mcp-tool-gen init ./my-agent-project
+        mcp-coded-tools init ./my-agent-project
     """
     output_path = Path(output_dir)
 
@@ -344,7 +344,7 @@ import asyncio
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
-# Import generated tools (after running mcp-tool-gen generate)
+# Import generated tools (after running mcp-coded-tools generate)
 # from servers.google_drive import get_document
 # from servers.salesforce import update_record
 
@@ -381,18 +381,18 @@ if __name__ == "__main__":
     # Create README
     readme = f"""# Agent Project
 
-This project uses mcp-tool-gen to generate discoverable tools from MCP servers.
+This project uses mcp-coded-tools to generate discoverable tools from MCP servers.
 
 ## Setup
 
 1. Install dependencies:
 ```bash
-pip install mcp-tool-gen
+pip install mcp-coded-tools
 ```
 
 2. Generate tools from MCP servers:
 ```bash
-mcp-tool-gen generate -c "npx -y @modelcontextprotocol/server-gdrive" -o ./servers
+mcp-coded-tools generate -c "npx -y @modelcontextprotocol/server-gdrive" -o ./servers
 ```
 
 3. Run the agent:
@@ -430,7 +430,7 @@ python agent.py
     click.echo()
     click.echo("💡 Next steps:")
     click.echo(f"   1. cd {output_dir}")
-    click.echo('   2. mcp-tool-gen generate -c "your-mcp-server" -o ./servers')
+    click.echo('   2. mcp-coded-tools generate -c "your-mcp-server" -o ./servers')
     click.echo("   3. python agent.py")
 
 

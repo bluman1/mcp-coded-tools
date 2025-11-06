@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-Get up and running with MCP CodeGen in 5 minutes.
+Get up and running with mcp-coded-tools in 5 minutes.
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ Get up and running with MCP CodeGen in 5 minutes.
 ## Installation
 
 ```bash
-pip install mcp-agent-tools
+pip install mcp-coded-tools
 ```
 
 ## 1. Generate Code (CLI)
@@ -19,7 +19,7 @@ The fastest way to get started:
 
 ```bash
 # Generate from Google Drive MCP server
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   --command "npx -y @modelcontextprotocol/server-gdrive" \
   --output ./servers
 
@@ -32,7 +32,7 @@ Or use the Python API:
 
 ```python
 import asyncio
-from mcp_agent_tools import MCPCodeGenerator
+from mcp-coded-tools import MCPCodeGenerator
 
 async def main():
     generator = MCPCodeGenerator()
@@ -84,7 +84,7 @@ asyncio.run(main())
 ### Multiple Servers
 
 ```bash
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "npx -y @modelcontextprotocol/server-gdrive" \
   -c "npx -y @modelcontextprotocol/server-slack" \
   -o ./servers
@@ -93,7 +93,7 @@ mcp-agent-tools generate \
 ### Custom Server Name
 
 ```bash
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "python my_mcp_server.py" \
   -s my_tools \
   -o ./servers
@@ -103,18 +103,18 @@ mcp-agent-tools generate \
 
 ```bash
 # See what tools are available
-mcp-agent-tools inspect -c "npx -y @modelcontextprotocol/server-gdrive"
+mcp-coded-tools inspect -c "npx -y @modelcontextprotocol/server-gdrive"
 ```
 
 ### Initialize New Project
 
 ```bash
 # Create project structure
-mcp-agent-tools init ./my-agent-project
+mcp-coded-tools init ./my-agent-project
 cd my-agent-project
 
 # Generate tools
-mcp-agent-tools generate -c "your-mcp-server" -o ./servers
+mcp-coded-tools generate -c "your-mcp-server" -o ./servers
 
 # Run agent
 python agent.py
@@ -171,7 +171,7 @@ async def get_document(
 - Make sure you call `set_session(session)` before using tools
 
 **Error: "No module named 'servers'"**
-- Run `mcp-agent-tools generate` first to create the code
+- Run `mcp-coded-tools generate` first to create the code
 - Make sure you're in the right directory
 
 **Error: "Connection failed"**
@@ -184,6 +184,6 @@ async def get_document(
 ## Support
 
 - 📖 [Full Documentation](README.md)
-- 🐛 [Report Issues](https://github.com/bluman1/mcp-agent-tools/issues)
-- 💬 [Discussions](https://github.com/bluman1/mcp-agent-tools/discussions)
+- 🐛 [Report Issues](https://github.com/bluman1/mcp-coded-tools/issues)
+- 💬 [Discussions](https://github.com/bluman1/mcp-coded-tools/discussions)
 - 📧 [Email](mailto:hey@michael.ng)

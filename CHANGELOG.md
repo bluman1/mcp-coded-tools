@@ -15,10 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Performance benchmarks
 - Docker images
 
-## [0.1.0] - 2025-01-XX
+## [0.1.0] - 2025-11-05
 
 ### Added
-- Initial release of MCP CodeGen
+- Initial release of mcp-coded-tools
 - Core code generation from MCP servers
 - Schema parser with full JSON Schema support
   - Basic types (string, number, integer, boolean)

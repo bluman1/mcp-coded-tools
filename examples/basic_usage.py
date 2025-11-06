@@ -8,7 +8,7 @@ This example shows how to:
 """
 
 import asyncio
-from mcp_agent_tools import MCPCodeGenerator
+from mcp_coded_tools import MCPCodeGenerator
 
 
 async def main():

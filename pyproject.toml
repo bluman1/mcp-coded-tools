@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mcp-agent-tools"
+name = "mcp-coded-tools"
 version = "0.1.0"
 description = "Generate discoverable code from MCP servers for agent tool usage"
 readme = "README.md"
@@ -12,7 +12,7 @@ license = "MIT"
 authors = [
     {name = "Michael Ogundare", email = "hey@michael.ng"}
 ]
-keywords = ["mcp", "model-context-protocol", "code-generation", "ai-agents"]
+keywords = ["mcp", "model-context-protocol", "code-generation", "ai-agents", "codegen"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -43,12 +43,12 @@ dev = [
 ]
 
 [project.scripts]
-mcp-agent-tools = "mcp_agent_tools.cli:main"
+mcp-coded-tools = "mcp_coded_tools.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/bluman1/mcp-agent-tools"
-Repository = "https://github.com/bluman1/mcp-agent-tools"
-Issues = "https://github.com/bluman1/mcp-agent-tools/issues"
+Homepage = "https://github.com/bluman1/mcp-coded-tools"
+Repository = "https://github.com/bluman1/mcp-coded-tools"
+Issues = "https://github.com/bluman1/mcp-coded-tools/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

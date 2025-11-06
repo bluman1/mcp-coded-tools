@@ -2,7 +2,7 @@
 Tests for schema parser
 """
 
-from mcp_agent_tools.schema_parser import SchemaParser
+from mcp_coded_tools.schema_parser import SchemaParser
 
 
 class TestSchemaParser:

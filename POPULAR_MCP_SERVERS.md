@@ -1,8 +1,8 @@
-# 🌟 Popular MCP Servers for mcp-agent-tools (November 2025)
+# 🌟 Popular MCP Servers for mcp-coded-tools (November 2025)
 
 ## Overview
 
-This document lists the most popular and useful MCP servers to use with mcp-agent-tools. These servers are battle-tested in production environments and cover the most common enterprise use cases.
+This document lists the most popular and useful MCP servers to use with mcp-coded-tools. These servers are battle-tested in production environments and cover the most common enterprise use cases.
 
 **Last Updated:** November 2025
 
@@ -31,7 +31,7 @@ These servers are maintained by the MCP team and represent best practices.
 
 **Installation Example:**
 ```bash
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "npx -y @modelcontextprotocol/server-filesystem" \
   -c "npx -y @modelcontextprotocol/server-git" \
   -c "npx -y @modelcontextprotocol/server-memory" \
@@ -53,10 +53,10 @@ mcp-agent-tools generate \
   - Release automation and changelog generation
   - Repository exploration and documentation
 - **Key Tools:** `create_issue`, `get_pull_request`, `list_pr_files`, `create_review_comment`
-- **Token Efficiency:** Managing 100+ repos would consume 180K tokens traditionally. With mcp-agent-tools: ~3K tokens.
+- **Token Efficiency:** Managing 100+ repos would consume 180K tokens traditionally. With mcp-coded-tools: ~3K tokens.
 
 ```bash
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "npx -y @modelcontextprotocol/server-github" \
   -s github \
   -o ./dev_tools
@@ -64,8 +64,8 @@ mcp-agent-tools generate \
 
 **Real Use Case:**
 ```python
-# Without mcp-agent-tools: Load 50 GitHub tool definitions = 45K tokens
-# With mcp-agent-tools: Agent discovers tools as needed
+# Without mcp-coded-tools: Load 50 GitHub tool definitions = 45K tokens
+# With mcp-coded-tools: Agent discovers tools as needed
 from dev_tools.github import get_pull_request, list_pr_files
 pr = await get_pull_request(owner='acme', repo='api', number=142)
 files = await list_pr_files(owner='acme', repo='api', number=142)
@@ -90,7 +90,7 @@ files = await list_pr_files(owner='acme', repo='api', number=142)
 - **Token Efficiency:** Query results with millions of rows stay in execution environment
 
 ```bash
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "npx -y @modelcontextprotocol/server-postgres" \
   -s postgres \
   -o ./data_tools
@@ -130,7 +130,7 @@ rows = await execute_query(query="SELECT * FROM transactions WHERE date > NOW() 
 - **Key Tools:** `post_message`, `get_messages`, `search_messages`, `create_channel`
 
 ```bash
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "python slack_mcp_server.py" \
   -s slack \
   -o ./communication_tools
@@ -168,7 +168,7 @@ for team_member in ['alice', 'bob', 'charlie']:
 - **Key Tools:** `list_files`, `get_document`, `search_files`, `upload_file`
 
 ```bash
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "npx -y @modelcontextprotocol/server-gdrive" \
   -s google_drive \
   -o ./cloud_tools
@@ -215,7 +215,7 @@ for file in files[:5]:
 - **Key Tools:** `navigate`, `click`, `screenshot`, `get_page_content`
 
 ```bash
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "npx -y @modelcontextprotocol/server-puppeteer" \
   -s browser \
   -o ./automation_tools
@@ -261,7 +261,7 @@ screenshot_path = await screenshot(path='./test-results/checkout.png')
 
 ### 1. DevOps Incident Response
 ```bash
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "npx -y @modelcontextprotocol/server-postgres" \
   -c "npx -y @modelcontextprotocol/server-github" \
   -c "python slack_mcp_server.py" \
@@ -276,7 +276,7 @@ mcp-agent-tools generate \
 
 ### 2. Data Analytics Pipeline
 ```bash
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "npx -y @modelcontextprotocol/server-postgres" \
   -c "npx -y @modelcontextprotocol/server-filesystem" \
   -c "python slack_mcp_server.py" \
@@ -289,7 +289,7 @@ mcp-agent-tools generate \
 
 ### 3. Automated Code Review
 ```bash
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "npx -y @modelcontextprotocol/server-github" \
   -c "npx -y @modelcontextprotocol/server-filesystem" \
   -c "npx -y @modelcontextprotocol/server-sequential-thinking" \
@@ -302,7 +302,7 @@ mcp-agent-tools generate \
 
 ### 4. Customer Support Automation
 ```bash
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "npx -y @modelcontextprotocol/server-postgres" \
   -c "npx -y @modelcontextprotocol/server-memory" \
   -c "npx -y @modelcontextprotocol/server-github" \
@@ -315,7 +315,7 @@ mcp-agent-tools generate \
 
 ### 5. Release Management
 ```bash
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "npx -y @modelcontextprotocol/server-git" \
   -c "npx -y @modelcontextprotocol/server-github" \
   -c "npx -y @modelcontextprotocol/server-filesystem" \
@@ -335,7 +335,7 @@ mcp-agent-tools generate \
 ### For Startups & Small Teams
 **Start with:** GitHub, Slack, Filesystem
 ```bash
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "npx -y @modelcontextprotocol/server-github" \
   -c "python slack_mcp_server.py" \
   -c "npx -y @modelcontextprotocol/server-filesystem" \
@@ -346,7 +346,7 @@ mcp-agent-tools generate \
 ### For Data-Heavy Operations
 **Start with:** PostgreSQL, Filesystem, Slack
 ```bash
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "npx -y @modelcontextprotocol/server-postgres" \
   -c "npx -y @modelcontextprotocol/server-filesystem" \
   -c "python slack_mcp_server.py" \
@@ -357,7 +357,7 @@ mcp-agent-tools generate \
 ### For Enterprise Workflows
 **Start with:** All official servers + key integrations
 ```bash
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "npx -y @modelcontextprotocol/server-github" \
   -c "npx -y @modelcontextprotocol/server-postgres" \
   -c "npx -y @modelcontextprotocol/server-filesystem" \
@@ -419,10 +419,10 @@ npm view @modelcontextprotocol/server-github
 ### 1. Start Small, Scale Up
 ```bash
 # Week 1: Core tools
-mcp-agent-tools generate -c "npx -y @modelcontextprotocol/server-github" -o ./tools
+mcp-coded-tools generate -c "npx -y @modelcontextprotocol/server-github" -o ./tools
 
 # Week 2: Add database
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "npx -y @modelcontextprotocol/server-github" \
   -c "npx -y @modelcontextprotocol/server-postgres" \
   -o ./tools
@@ -434,7 +434,7 @@ mcp-agent-tools generate \
 ### 2. Use Explicit Server Names
 ```bash
 # Good: Clear organization
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "npx -y @modelcontextprotocol/server-github" \
   -s github \
   -o ./tools
@@ -445,13 +445,13 @@ mcp-agent-tools generate \
 ### 3. Test with `inspect` First
 ```bash
 # Preview tools before generating
-mcp-agent-tools inspect -c "npx -y @modelcontextprotocol/server-github"
+mcp-coded-tools inspect -c "npx -y @modelcontextprotocol/server-github"
 ```
 
 ### 4. Keep Tools Updated
 ```bash
 # Regenerate periodically to get latest tool versions
-mcp-agent-tools generate --overwrite -c "..." -o ./tools
+mcp-coded-tools generate --overwrite -c "..." -o ./tools
 ```
 
 ### 5. Document Your Setup
@@ -469,11 +469,11 @@ slack_mcp_server.py                    # Team communication
 
 ### Quick Test (5 minutes)
 ```bash
-# 1. Install mcp-agent-tools
-pip install mcp-agent-tools
+# 1. Install mcp-coded-tools
+pip install mcp-coded-tools
 
 # 2. Generate from one popular server
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "npx -y @modelcontextprotocol/server-github" \
   -o ./test_tools
 
@@ -488,7 +488,7 @@ cat test_tools/github/get_repository.py
 ```bash
 # 1. Choose your servers (see combinations above)
 # 2. Generate comprehensive toolset
-mcp-agent-tools generate \
+mcp-coded-tools generate \
   -c "npx -y @modelcontextprotocol/server-github" \
   -c "npx -y @modelcontextprotocol/server-postgres" \
   -c "python slack_mcp_server.py" \

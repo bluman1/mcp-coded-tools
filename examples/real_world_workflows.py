@@ -2,7 +2,7 @@
 Real-World MCP Workflow Examples
 
 This example demonstrates practical agent workflows that combine multiple
-MCP servers. These patterns showcase why mcp-tool-gen's token efficiency
+MCP servers. These patterns showcase why mcp-coded-tools's token efficiency
 matters - complex workflows become feasible when you're not burning tokens
 on tool definitions.
 
@@ -22,8 +22,8 @@ async def example_1_automated_incident_response():
     3. Post notification to Slack channel
     4. Update monitoring dashboard
 
-    WITHOUT mcp-tool-gen: ~150K tokens (all tool definitions in context)
-    WITH mcp-tool-gen: ~3K tokens (agent discovers tools as needed)
+    WITHOUT mcp-coded-tools: ~150K tokens (all tool definitions in context)
+    WITH mcp-coded-tools: ~3K tokens (agent discovers tools as needed)
     TOKEN SAVINGS: 98%
     """
     print("=" * 70)
@@ -34,7 +34,7 @@ async def example_1_automated_incident_response():
     print("\n📡 Step 1: Generate discoverable code from MCP servers...")
     print(
         """
-    $ mcp-tool-gen generate \\
+    $ mcp-coded-tools generate \\
         -c "npx -y @modelcontextprotocol/server-postgres" \\
         -c "npx -y @modelcontextprotocol/server-github" \\
         -c "python slack_mcp_server.py" \\
@@ -90,7 +90,7 @@ async def example_1_automated_incident_response():
 
     print("\n💰 Token Usage Comparison:")
     print("   Traditional approach: 150,000 tokens (all tool defs + data)")
-    print("   With mcp-tool-gen:       3,000 tokens (discovery + summaries)")
+    print("   With mcp-coded-tools:       3,000 tokens (discovery + summaries)")
     print("   💵 Cost savings: ~$2.94 per workflow @ $0.02/1K tokens")
 
 
@@ -115,7 +115,7 @@ async def example_2_pr_automation():
     print("\n📡 Generate code from MCP servers...")
     print(
         """
-    $ mcp-tool-gen generate \\
+    $ mcp-coded-tools generate \\
         -c "npx -y @modelcontextprotocol/server-github" \\
         -c "npx -y @modelcontextprotocol/server-filesystem" \\
         -c "npx -y @modelcontextprotocol/server-sequential-thinking" \\
@@ -200,7 +200,7 @@ async def example_3_data_pipeline():
     print("\n📡 Generate pipeline tools...")
     print(
         """
-    $ mcp-tool-gen generate \\
+    $ mcp-coded-tools generate \\
         -c "npx -y @modelcontextprotocol/server-postgres" \\
         -c "npx -y @modelcontextprotocol/server-filesystem" \\
         -c "python slack_mcp_server.py" \\
@@ -271,12 +271,12 @@ async def example_3_data_pipeline():
     """
     )
 
-    print("\n💡 Without mcp-tool-gen:")
+    print("\n💡 Without mcp-coded-tools:")
     print("   • Streaming 1M rows through context: IMPOSSIBLE")
     print("   • Tool definitions for 34 functions: 45K tokens")
     print("   • Forced to use external scripts, losing agent intelligence")
 
-    print("\n✨ With mcp-tool-gen:")
+    print("\n✨ With mcp-coded-tools:")
     print("   • All data processing in execution: ~5K tokens total")
     print("   • Agent maintains full control and decision-making")
     print("   • Can adapt workflow based on data insights")
@@ -301,7 +301,7 @@ async def example_4_customer_support():
     print("\n📡 Setup support agent tools...")
     print(
         """
-    $ mcp-tool-gen generate \\
+    $ mcp-coded-tools generate \\
         -c "npx -y @modelcontextprotocol/server-postgres" \\
         -c "npx -y @modelcontextprotocol/server-github" \\
         -c "npx -y @modelcontextprotocol/server-memory" \\
@@ -385,7 +385,7 @@ async def example_4_customer_support():
     print("   • 500 customer inquiries per day")
     print("   • Each inquiry processes ~30MB of data (history, KB, tickets)")
     print("   • Traditional: Would need 15B tokens/day = $300,000/day!")
-    print("   • With mcp-tool-gen: 2.5M tokens/day = $50/day")
+    print("   • With mcp-coded-tools: 2.5M tokens/day = $50/day")
     print("   • 💰 SAVINGS: $299,950/day = $109M/year")
 
 
@@ -400,7 +400,7 @@ async def example_5_multi_tool_composition():
     - File system for artifacts
     - Slack for coordination
 
-    This is where mcp-tool-gen truly shines - the more tools, the bigger the savings.
+    This is where mcp-coded-tools truly shines - the more tools, the bigger the savings.
     """
     print("\n\n" + "=" * 70)
     print("EXAMPLE 5: Complex Multi-Tool Workflow (The Power Example)")
@@ -409,7 +409,7 @@ async def example_5_multi_tool_composition():
     print("\n📡 Generate comprehensive toolset...")
     print(
         """
-    $ mcp-tool-gen generate \\
+    $ mcp-coded-tools generate \\
         -c "npx -y @modelcontextprotocol/server-time" \\
         -c "npx -y @modelcontextprotocol/server-git" \\
         -c "npx -y @modelcontextprotocol/server-filesystem" \\
@@ -514,7 +514,7 @@ async def example_5_multi_tool_composition():
     print("\n🎯 The Power of Composition:")
     print("   • 127 tools available to agent")
     print("   • Traditional: ~160K tokens just for tool definitions")
-    print("   • With mcp-tool-gen: ~4K tokens for discovery + usage")
+    print("   • With mcp-coded-tools: ~4K tokens for discovery + usage")
     print("   • Agent discovers tools as needed: 'ls mega_agent_tools/'")
     print("   • Reads documentation: 'cat mega_agent_tools/git/get_commits.py'")
     print("   • Executes efficiently: processes GBs of data in code")
@@ -525,12 +525,12 @@ async def example_5_multi_tool_composition():
 async def main():
     """Run all examples to show diverse use cases."""
     print("\n" + "🌟" * 35)
-    print("     MCP CodeGen: Real-World Enterprise Workflows")
+    print("     mcp-coded-tools: Real-World Enterprise Workflows")
     print("     November 2025 - Production Use Cases")
     print("🌟" * 35)
 
     print("\n💡 KEY INSIGHT:")
-    print("   MCP CodeGen enables agents to work with 100s-1000s of tools by")
+    print("   mcp-coded-tools enables agents to work with 100s-1000s of tools by")
     print("   turning tool definitions into discoverable code. Agents explore")
     print("   tools via filesystem, keep data in execution, and use 98% fewer tokens.")
 
@@ -547,17 +547,17 @@ async def main():
     await example_5_multi_tool_composition()
 
     print("\n\n" + "=" * 70)
-    print("🎊 CONCLUSION: Why mcp-tool-gen Changes Everything")
+    print("🎊 CONCLUSION: Why mcp-coded-tools Changes Everything")
     print("=" * 70)
     print(
         """
-WITHOUT mcp-tool-gen:
+WITHOUT mcp-coded-tools:
   ❌ Limited to ~10-20 tools before context exhaustion
   ❌ Every data fetch flows through context (expensive!)
   ❌ 150K+ tokens per complex workflow
   ❌ Cost: $3-5 per workflow = prohibitive at scale
 
-WITH mcp-tool-gen:
+WITH mcp-coded-tools:
   ✅ Scale to 100s-1000s of tools effortlessly
   ✅ Data stays in execution environment (efficient!)
   ✅ ~2-5K tokens per complex workflow
@@ -573,8 +573,8 @@ WITH mcp-tool-gen:
 🚀 This isn't theoretical - it's happening in production RIGHT NOW.
 
 Try it yourself:
-  $ pip install mcp-tool-gen
-  $ mcp-tool-gen generate -c "npx -y @modelcontextprotocol/server-github" -o ./tools
+  $ pip install mcp-coded-tools
+  $ mcp-coded-tools generate -c "npx -y @modelcontextprotocol/server-github" -o ./tools
   $ # Your agent just got superpowers! ✨
     """
     )

@@ -1,5 +1,5 @@
 """
-MCP CodeGen - Generate discoverable code from MCP servers
+mcp-coded-tools - Generate discoverable code from MCP servers
 
 This package generates Python code from MCP tool definitions to enable
 efficient AI agent tool discovery through filesystem interfaces.

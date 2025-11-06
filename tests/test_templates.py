@@ -2,7 +2,7 @@
 Tests for template renderer
 """
 
-from mcp_agent_tools.templates import TemplateRenderer
+from mcp_coded_tools.templates import TemplateRenderer
 
 
 class TestTemplateRenderer:
